@@ -1,0 +1,113 @@
+
+body {
+  width: 100%;
+  overflow: hidden;
+  background: url("images/Background1.png");
+  background-size: 70%;
+ 
+      
+}
+
+.screen{
+  position: relative;
+  top: -10px;
+  width: 80%;
+  height: 750px;
+  border: 1px solid white;
+  margin: 80px auto;
+  overflow: hidden;
+  background-color: black;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  */
+
+}
+
+.rocket {
+  position: absolute;
+  width: 100px;
+  height: 200px;
+  background: url("images/Rocket.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 20px;
+  left: 50%;
+  
+}
+
+.flame {
+  position: absolute; 
+  width : 50px;
+  height : 60px;
+  background: url("images/Flamme1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 49px;
+  left: 50.9%;
+  overflow: hidden;
+ 
+ 
+}
+
+.shot {
+  position: absolute;
+ 
+  left: 51%;
+  width: 80px;
+  height: 100px;
+  background: url("images/shot.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}  
+
+
+.rock{
+ position: absolute ;
+ top: -150px;
+ 
+ width: 120px;
+ height: 100px;
+ background: url("images/Rock.png");
+ background-size: contain;
+ background-repeat: no-repeat;
+ 
+ animation-timing-function: linear;
+ animation: animateRocks linear ;
+}  
+
+@keyframes animateRocks{
+  from
+   {
+     transform: translateY(0);
+     transform: translateX(80%);
+   }
+   to
+   {
+     transform: translateY(100vh);
+   }
+}
+
+
+
+.screen i {
+  position: absolute;
+    top: -250px;
+    background: white;
+    animation: animateStars linear infinite;
+
+}
+@keyframes animateStars{
+  from
+   {
+     transform: translateY(0);
+     transform: translateX(80%);
+   }
+   to
+   {
+     transform: translateY(100vh);
+   }
+}
+
+
+ 
