@@ -91,7 +91,7 @@ if (e.key == "ArrowUp" || e.keyCode == 32) {
     shot.classList.add("shot");
     screen.appendChild(shot);
     
-    var bottom = window.innerHeight - up- 470 ;
+    var bottom = window.innerHeight - up- 230 ;
     shot.style.bottom = bottom +  "px";
 
     var moveshot= setInterval(() => {
@@ -106,9 +106,9 @@ if (e.key == "ArrowUp" || e.keyCode == 32) {
               //If so,then we have to destroy that roc
               if (
                 blastbound.left >= rockbound.left -20 &&
-                blastbound.right <= rockbound.right +20  &&
+                blastbound.right <= rockbound.right +60  &&
                 
-                blastbound.bottom <= rockbound.bottom
+                blastbound.bottom <= rockbound.bottom -100
               ) {
                 rock.parentElement.removeChild(rock); 
                 shot.parentElement.removeChild(shot);
@@ -125,7 +125,7 @@ if (e.key == "ArrowUp" || e.keyCode == 32) {
         clearInterval(moveshot);
       }
 
-      shot.style.left = left + 9 +  "px"; //shot should always be placed at the top of my jet..!
+      shot.style.left = left + 22 +  "px"; //shot should always be placed at the top of my jet..!
      
       shot.style.bottom = shotbottom + 7 + "px";
     });
@@ -241,7 +241,7 @@ function rocks() {
         if ((oldleft - x) > 100 || (oldleft - x) < -100) {
 
        
-        let duration = Math.random() * 1+4;
+        let duration = Math.random() * 1+10;
         let h = (Math.random()+1) * 110;
 
         rock.style.left = x + 'px';
