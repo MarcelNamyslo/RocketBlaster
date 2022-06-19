@@ -26,7 +26,8 @@ body {
 
 .rocket {
   position: absolute;
-  width: 100px;
+  pointer-events: none;
+  width: 10%;
   height: 10%;
   background: url("images/Rocket.png");
   background-size: contain;
@@ -37,6 +38,7 @@ body {
 }
 
 .flame {
+  pointer-events: none;
   position: absolute; 
   width : 50px;
   height : 4%;
@@ -63,6 +65,7 @@ body {
 
 
 .rock{
+  pointer-events: none;
  position: absolute ;
  top: -150px;
  
