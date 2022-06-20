@@ -129,7 +129,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     
     overflow: hidden;
     position: absolute;
-    margin: 5;
+    margin: 10;
     background-size: 70%;
  
   }
@@ -143,6 +143,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     left: 0;
   }
   .shootbutton {
+    display: block;
     position: absolute;
     background-color: #04AA6D;
     border: none;
