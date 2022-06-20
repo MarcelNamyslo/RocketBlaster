@@ -69,6 +69,9 @@ body {
 .shootbutton {
   display: none;
 }
+.accelPermsButton{
+  display: none;
+}
 
 
 .rock{
@@ -129,7 +132,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     
     overflow: hidden;
     position: absolute;
-    margin: 20;
+    margin: 30, 20,20,30;
     background-size: 70%;
  
   }
@@ -157,6 +160,15 @@ and (-webkit-device-pixel-ratio: 3)  {
     border-radius: 50%;
     left: 45%;
     top: 95%;}
+
+    .accelPermsButton{
+      display: block;
+      height: 10%;
+      width: 10%;
+      left: 0;
+      top:0;
+
+    }
   
 }
 
