@@ -139,6 +139,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     margin: 10px;
     overflow: hidden;
     position: absolute;
+    margin: 10%;
     
   }
   .shootbutton {
