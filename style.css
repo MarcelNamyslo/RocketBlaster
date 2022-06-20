@@ -128,16 +128,16 @@ and (-webkit-device-pixel-ratio: 3)  {
     height: 90%;
     
     overflow: hidden;
-    position: relative;
+    position: absolute;
     background-size: 70%;
  
   }
   .screen{
-    width: 100%;
+    width: 90%;
     height: 90%;
-    margin: 10px,10px,30px,10px;
+    margin: 5px,10px,30px,10px;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     
   }
   .shootbutton {
