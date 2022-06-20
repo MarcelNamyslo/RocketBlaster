@@ -128,7 +128,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     height: 90%;
     
     overflow: hidden;
-    position: absolute;
+    position: relative;
     background-size: 70%;
  
   }
