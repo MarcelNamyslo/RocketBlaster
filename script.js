@@ -41,7 +41,7 @@ function moveRocket2() {
   })
 }
 
-function shoot() {
+function moveRocket3() {
   let rocket = document.querySelector('.rocket');
   var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
   var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
@@ -402,8 +402,65 @@ DeviceMotionEvent.requestPermission().then(response => {
         });
     }
 });
-
 }
+
+
+function shoot() {
+  let rocket = document.querySelector('.rocket');
+  var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
+  var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
+
+      let screen = document.querySelector('.screen');
+      //32 is for space key
+      //flame.style.left = left;
+      //flame.style.up = up;
+      var shot = document.createElement("div");
+      
+      shot.classList.add("shot");
+      screen.appendChild(shot);
+      
+      var bottom = window.innerHeight - up- 230 ;
+      shot.style.bottom = bottom +  "px";
+  
+      var moveshot= setInterval(() => {
+          var rocks = document.getElementsByClassName("rock");
+          for (var i = 0; i < rocks.length; i++) {
+              var rock = rocks[i];
+              if (rock != undefined) {
+                  var rockbound = rock.getBoundingClientRect();
+                  var blastbound = shot.getBoundingClientRect();
+      
+                //Condition to check whether the rock/alien and the bullet are at the same position..!
+                //If so,then we have to destroy that roc
+                if (
+                  blastbound.left >= rockbound.left -20 &&
+                  blastbound.right <= rockbound.right +60  &&
+                  
+                  blastbound.bottom <= rockbound.bottom -100
+                ) {
+                  rock.parentElement.removeChild(rock); 
+                  shot.parentElement.removeChild(shot);
+                  
+                }
+              }
+            }
+        var shotbottom = parseInt(
+          window.getComputedStyle(shot).getPropertyValue("bottom")
+        );
+       
+        //Stops the shot from moving outside the gamebox
+        if (shotbottom >= 1000) {
+          clearInterval(moveshot);
+        }
+  
+        shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
+       
+        shot.style.bottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom")) + 7  + "px";
+      });
+    }
+  
+
+
    stars();
    rocks();
    moveRocket();
