@@ -381,14 +381,14 @@ DeviceMotionEvent.requestPermission().then(response => {
             
             // Update position and clip it to bounds
             px = px + vx*.5;
-            if (px > 95 || px < 0){ 
-                px = Math.max(0, Math.min(98, px)) // Clip px between 0-98
+            if (px > 90 || px < 0){ 
+                px = Math.max(0, Math.min(90, px)) // Clip px between 0-98
                 vx = 0;
             }
 
             py = py + vy*.5;
-            if (py > 98 || py < 0){
-                py = Math.max(0, Math.min(98, py)) // Clip py between 0-98
+            if (py > 90 || py < 0){
+                py = Math.max(0, Math.min(90, py)) // Clip py between 0-98
                 vy = 0;
             }
             rocket = document.querySelector('.rocket');
@@ -403,10 +403,6 @@ DeviceMotionEvent.requestPermission().then(response => {
     }
 });
 
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
    stars();
    rocks();
