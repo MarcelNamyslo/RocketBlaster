@@ -119,7 +119,9 @@ body {
    }
 }
 
-@media only screen  { 
+@media only screen and (device-width: 390px) 
+and (device-height: 844px) 
+and (-webkit-device-pixel-ratio: 3)  { 
   /* For mobile phones: */
   body{
     width: 100%;
