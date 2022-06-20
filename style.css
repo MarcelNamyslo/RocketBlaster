@@ -154,15 +154,18 @@ and (-webkit-device-pixel-ratio: 3)  {
    
     border-radius: 50%;
     left: 45%;
-    top: 100%;}
+    top: 120%;
+    height: 7.5%;
+    width: 15%;
+    }
 
-    .accelPermsButton{
-      display: block;
-      height: 7.5%;
-      width: 15%;
-      left: 0;
-      top:0;
-      font-size: 5px;
+  .accelPermsButton{
+    display: block;
+    height: 7.5%;
+    width: 15%;
+    left: 0;
+    top:0;
+    font-size: 5px;
 
     }
   
