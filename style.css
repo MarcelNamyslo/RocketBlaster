@@ -130,7 +130,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     overflow: hidden;
     position: absolute;
     background-size: 70%;
-    background-repeat: no-repeat;
+   
  
   }
   .screen{
@@ -139,7 +139,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     margin: 10px;
     overflow: hidden;
     position: absolute;
-    margin: 10%,20%, 10%,10%;
+    margin: 20px,20%, 10%,10%;
     
     
   }
