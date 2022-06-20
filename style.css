@@ -41,7 +41,7 @@ body {
 .flame {
   pointer-events: none;
   position: absolute; 
-  width : 50px;
+  width : 4%;
   height : 4%;
   background: url("images/Flamme1.png");
   background-size: contain;
