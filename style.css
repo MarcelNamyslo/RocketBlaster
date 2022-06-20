@@ -124,7 +124,7 @@ and (device-height: 844px)
 and (-webkit-device-pixel-ratio: 3)  { 
   /* For mobile phones: */
   body{
-    width: 90%;
+    width: 100%;
     height: 90%;
     
     overflow: hidden;
@@ -134,7 +134,7 @@ and (-webkit-device-pixel-ratio: 3)  {
  
   }
   .screen{
-    width: 90%;
+    width: 100%;
     height: 90%;
     margin: 10px;
     overflow: hidden;
