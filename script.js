@@ -127,13 +127,15 @@ function moveRocket() {
 window.addEventListener("keydown", (e) => {
     let rocket = document.querySelector('.rocket');
     let flame = document.querySelector('.flame');
+    let ss = parseInt(window.getComputedStyle(document.querySelector('.screen')).getPropertyValue("width"));
     var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
     var right = parseInt(window.getComputedStyle(rocket).getPropertyValue("right"));
     var leftFlame = parseInt(window.getComputedStyle(flame).getPropertyValue("left"));
-
+     
     var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
     var bottom = parseInt(window.getComputedStyle(rocket).getPropertyValue("bottom"));
     var upFlame = parseInt(window.getComputedStyle(flame).getPropertyValue("top"));
+    //var screenlength = parseInt(window.getComputedStyle(screen).getPropertyValue("top"));
 
 window.onkeydown = function(e) {
 var kc = e.keyCode;
@@ -163,7 +165,7 @@ if (Keys.up &&  up > 0) {
     
    
 }
-else if (Keys.down && up < 1300) {  
+else if (Keys.down && up < 650) {  
     rocket.style.top = up + 30 + "px";
     flame.style.top = upFlame + 30 + "px";
 }
@@ -174,7 +176,7 @@ if (Keys.left &&  left > 0) {
     flame.style.left = leftFlame - 30 + "px";
     
 }
-else if (Keys.right && right > 0) {
+else if (Keys.right && left < ss * 0.93) {
     rocket.style.left = left + 30 + "px";
     flame.style.left = leftFlame + 30 + "px";
 }
@@ -390,9 +392,12 @@ DeviceMotionEvent.requestPermission().then(response => {
                 vy = 0;
             }
             rocket = document.querySelector('.rocket');
+            flame = document.querySelector('.flame');
            
             rocket.setAttribute('style', "left:" + (px) + "%;" +
                                           "top:" + (py) + "%;");
+            flame.setAttribute('style', "left:" + (px) + "%;" +
+            "top:" + (py-10) + "%;");
             
         });
     }
