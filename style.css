@@ -3,7 +3,7 @@
   /* For mobile phones: */
   [class*="screen"] {
     width: 80%;
-    height: 80%;
+    height: 60%;
   }
 }
 
