@@ -371,7 +371,7 @@ DeviceMotionEvent.requestPermission().then(response => {
         window.addEventListener('deviceorientation',(event) => {
             // Expose each orientation angle in a more readable way
             rotation_degrees = event.alpha;
-            frontToBack_degrees = event.beta;
+            frontToBack_degrees = event.beta-30;
             leftToRight_degrees = event.gamma;
             
             // Update velocity according to how tilted the phone is
