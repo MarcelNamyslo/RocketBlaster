@@ -145,11 +145,11 @@ and (-webkit-device-pixel-ratio: 3)  {
     
   }
   .shootbutton {
-    display: block;
+    
     position: absolute;
     background-color: white;
     border: none;
-    color: black;
+    
     padding: 20px;
     font-size: 10px;
    
@@ -165,9 +165,10 @@ and (-webkit-device-pixel-ratio: 3)  {
     display: block;
     height: 7.5%;
     width: 15%;
-    left: 43%;
+    left: 40%;
     top:0;
     font-size: 5px;
+    font-size: 10px;
 
     }
   
