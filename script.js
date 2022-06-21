@@ -396,8 +396,8 @@ DeviceMotionEvent.requestPermission().then(response => {
            
             rocket.setAttribute('style', "left:" + (px) + "%;" +
                                           "top:" + (py) + "%;");
-            flame.setAttribute('style', "left:" + (px+5) + "%;" +
-            "top:" + (py+6) + "%;");
+            flame.setAttribute('style', "left:" + (px+4) + "%;" +
+            "top:" + (py+7) + "%;");
             
         });
     }
