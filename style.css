@@ -136,10 +136,11 @@ and (-webkit-device-pixel-ratio: 3)  {
   .screen{
     width: 90%;
     height: 90%;
+    margin: 10px;
     overflow: hidden;
     position: absolute;
     margin: 20%,20%, 20%,20%;
-    top:15px;
+    top: 10px;
     
     
   }
