@@ -92,27 +92,28 @@ window.addEventListener("keydown", (e) => {
           clearInterval(moveshot);
         }
   
-        shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
+       
        
         shot.style.bottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom")) + 7  + "px";
       });
+      shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
     }
   });
 
   document.addEventListener("mousemove", function(e){
     let rocket = document.querySelector('.rocket');
     let flame = document.querySelector('.flame');
-    rocket.style.left= e.offsetX - 35  + 'px';
+    let width = window.innerWidth;
+    let heigth = window.innerHeight;
+    if(e.offsetX > width *0.05 && e.offsetX < width*0.8 && e.offsetY < heigth *0.8 && e.offsetY > heigth * 0.09){
+      rocket.style.left= e.offsetX - 35  + 'px';
     rocket.style.top = e.offsetY -55 + 'px';
     flame.style.left= e.offsetX -20  + 'px';
     flame.style.top = e.offsetY -3 + 'px';
     var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
     var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
-
+    }
     
-
-    
-   
   })
   
 }
@@ -453,17 +454,18 @@ function shoot() {
           clearInterval(moveshot);
         }
   
-        shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
+       
        
         shot.style.bottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom")) + 7  + "px";
       });
+      shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
     }
   
 
 
    stars();
    rocks();
-   moveRocket();
+   moveRocket3();
    //shoot();
    //moveRocket2();
 
