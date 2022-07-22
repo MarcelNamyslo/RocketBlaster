@@ -1,8 +1,11 @@
 /*var rocket = document.getElementById("rocket");*/
 var flame = document.getElementById("flame");
 var screen = document.getElementById("screen");
-
-
+var stopp = false;
+var generateStars;
+var generaterocks;
+var deleterocks
+let rocket = document.querySelector('.rocket');
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
@@ -22,109 +25,141 @@ var Keys = {
     right: false
 };
 
-
 function moveRocket2() {
-  document.addEventListener("mousemove", function(e){
-    let rocket = document.querySelector('.rocket');
-    let flame = document.querySelector('.flame');
-    rocket.style.left= e.offsetX - 35  + 'px';
-    rocket.style.top = e.offsetY -55 + 'px';
-    flame.style.left= e.offsetX -20  + 'px';
-    flame.style.top = e.offsetY -3 + 'px';
-    var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
-    var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
-
-    
-
-    
-   
-  })
-}
-
-function moveRocket3() {
-  let rocket = document.querySelector('.rocket');
+  
   var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
+  var bottom = parseInt(window.getComputedStyle(rocket).getPropertyValue("bottom"));
   var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
 
-window.addEventListener("keydown", (e) => {
-   if (e.keyCode  == 1 || e.keyCode == 32) {
-      console.log(rocket);
-      let screen = document.querySelector('.screen');
-      //32 is for space key
-      //flame.style.left = left;
-      //flame.style.up = up;
-      var shot = document.createElement("div");
+window.addEventListener("keydown", addshot);
+
+document.addEventListener("mousemove", mousemove)
+}
+
+function addshot(e) {
+  if (e.keyCode  == 1 || e.keyCode == 32) {
       
-      shot.classList.add("shot");
-      screen.appendChild(shot);
-      
-      var bottom = window.innerHeight - up- 230 ;
-      shot.style.bottom = bottom +  "px";
-  
-      var moveshot= setInterval(() => {
-          var rocks = document.getElementsByClassName("rock");
-          for (var i = 0; i < rocks.length; i++) {
-              var rock = rocks[i];
-              if (rock != undefined) {
-                  var rockbound = rock.getBoundingClientRect();
-                  var blastbound = shot.getBoundingClientRect();
-      
-                //Condition to check whether the rock/alien and the bullet are at the same position..!
-                //If so,then we have to destroy that roc
-                if (
-                  blastbound.left >= rockbound.left -20 &&
-                  blastbound.right <= rockbound.right +60  &&
-                  
-                  blastbound.bottom <= rockbound.bottom -100
-                ) {
-                  rock.parentElement.removeChild(rock); 
-                  shot.parentElement.removeChild(shot);
-                  
-                }
+    let screen = document.querySelector('.screen');
+    //32 is for space key
+    //flame.style.left = left;
+    //flame.style.up = up;
+    var shot = document.createElement("div");
+    
+    shot.classList.add("shot");
+    screen.appendChild(shot);
+    
+    var bottom = window.innerHeight - up-230 ;
+    shot.style.bottom = bottom +  "px";
+    console.log("test1");
+    var moveshot= setInterval(() => {
+      console.log("test2");
+        var rocks = document.getElementsByClassName("rock");
+        for (var i = 0; i < rocks.length; i++) {
+            var rock = rocks[i];
+            if (rock != undefined) {
+                var rockbound = rock.getBoundingClientRect();
+                var blastbound = shot.getBoundingClientRect();
+    
+              //Condition to check whether the rock/alien and the bullet are at the same position..!
+              //If so,then we have to destroy that roc
+              if (
+                blastbound.left >= rockbound.left -20 &&
+                blastbound.right <= rockbound.right +60  &&
+                
+                blastbound.bottom <= rockbound.bottom -100
+              ) {
+                rock.parentElement.removeChild(rock); 
+                shot.parentElement.removeChild(shot);
               }
             }
-        var shotbottom = parseInt(
-          window.getComputedStyle(shot).getPropertyValue("bottom")
-        );
-       
-        //Stops the shot from moving outside the gamebox
-        if (shotbottom >= 1000) {
-          clearInterval(moveshot);
-        }
-  
-       
-       
-        shot.style.bottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom")) + 7  + "px";
-      });
-      shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
-    }
-  });
+          }
+      var shotbottom = parseInt(
+        window.getComputedStyle(shot).getPropertyValue("bottom")
+      );
+     
+      //Stops the shot from moving outside the gamebox
+      if (shotbottom >= 1000) {
+        clearInterval(moveshot);
+      }
 
-  document.addEventListener("mousemove", function(e){
-    let rocket = document.querySelector('.rocket');
-    let flame = document.querySelector('.flame');
-    let width = window.innerWidth;
-    let heigth = window.innerHeight;
-    if(e.offsetX > width *0.05 && e.offsetX < width*0.8 && e.offsetY < heigth *0.8 && e.offsetY > heigth * 0.09){
-      rocket.style.left= e.offsetX - 35  + 'px';
-    rocket.style.top = e.offsetY -55 + 'px';
-    flame.style.left= e.offsetX -20  + 'px';
-    flame.style.top = e.offsetY -3 + 'px';
-    var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
-    var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
-    }
-    
-  })
-  
+     
+     
+      shot.style.bottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom")) + 7  + "px";
+    });
+    shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
+  }
 }
-  
 
 
+function mousemove(e){
+  let flame = document.querySelector('.flame');
+  let width = window.innerWidth;
+  let heigth = window.innerHeight;
+  var rocketbound = rocket.getBoundingClientRect();
+  var rocks = document.getElementsByClassName("rock")
+  if (stopp == false)  {
+    
+ 
+ 
+  if(e.offsetX > width *0.05 && e.offsetX < width*0.8 && e.offsetY < heigth *0.8 && e.offsetY > heigth * 0.09){
+   
+    rocket.style.left= e.offsetX - 35  + 'px';
+    
+  rocket.style.top = e.offsetY -55 + 'px';
+  flame.style.left= e.offsetX -20  + 'px';
+  flame.style.top = e.offsetY -3 + 'px';
+  up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
+  var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
+  }
+  for (var i = 0; i < rocks.length; i++) {
+    var rock = rocks[i];
+    var rockbound = rock.getBoundingClientRect();
+    
+    //Condition to check whether the rock/alien and the bullet are at the same position..!
+    //If so,then we have to destroy that roc
+    if (
+      rocketbound.left >= rockbound.left -20   &&
+      rocketbound.left <= rockbound.left +30  &&
+      rocketbound.top -70 <= rockbound.top &&
+      rocketbound.top  >= rockbound.top  ) {
+      stoprunning();
+      console.log("error 1"); 
+      }
+    if (
+      rocketbound.left >= rockbound.left -20   &&
+      rocketbound.left <= rockbound.left -20   &&
+      rocketbound.top >= rockbound.top -50  &&
+      rocketbound.top  <= rockbound.top +50  ) {
+      stoprunning();
+      console.log("error 2");
+      
+      }
+      //oben
+      if (
+        rocketbound.left >= rockbound.left -20   &&
+        rocketbound.left <= rockbound.left +30  &&
+        rocketbound.top -90 <= rockbound.top   &&
+        rocketbound.top  >= rockbound.top -80  ) {
+        stoprunning();
+        console.log("error 3");
+        
+        }
+        //rechts
+      if (
+        rocketbound.left >= rockbound.left   &&
+        rocketbound.left <= rockbound.left + 50  &&
+        rocketbound.top -90 <= rockbound.top   &&
+        rocketbound.top  >= rockbound.top -80  ) {
+        stoprunning();
+        console.log("error 4");
+        
+        }
+    }
+} 
+}
 
 
 function moveRocket() {
-
-
 window.addEventListener("keydown", (e) => {
     let rocket = document.querySelector('.rocket');
     let flame = document.querySelector('.flame');
@@ -234,68 +269,15 @@ if (e.key == "ArrowUp" || e.keyCode == 32 ) {
 });
 }
 
-/*
-function checkShot(shot) {
-    var blast = shot
-    var rocks = document.getElementsByClassName("rock");
-
-      for (var i = 0; i < rocks.length; i++) {
-        var rock = rocks[i];
-        if (rock != undefined) {
-          var rockbound = rock.getBoundingClientRect();
-          var blastbound = blast.getBoundingClientRect();
-
-          //Condition to check whether the rock/alien and the bullet are at the same position..!
-          //If so,then we have to destroy that rock
-
-          if (
-            blastbound.left >= rockbound.left &&
-            blastbound.right <= rockbound.right &&
-            blastbound.top <= rockbound.top &&
-            blastbound.bottom <= rockbound.bottom
-          ) {
-            rock.parentElement.removeChild(rock); //Just removing that particular rock;
-            //Scoreboard
-            
-          }
-        }
-      }
-}*/
-
-
-/*
-window.addEventListener("keydown", (e) => {
-    keysPressed[e.key] = e.type;
-
-    let rocket = document.querySelector('.rocket');
-    var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
-    var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
-    if (e.key == "ArrowLeft" && left > -1000) {
-        rocket.style.left = left - 20 + "px";
-    }
-    //460  =>  board width - jet width
-    else if (e.key == "ArrowRight" && left <= 1000) {
-        rocket.style.left = left + 20 + "px";
-    }
-    else if (e.key == "ArrowUp" && up <= 1000) {
-        rocket.style.top = up - 20 + "px";
-    }
-
-    else if (e.key == "ArrowDown" && up <= 1000) {
-        rocket.style.top = up + 20 + "px";
-    }
-})
-
-*/
-
 
 function stars(){
     let star
     var timeout = 0;
-    var generateStars = setInterval(() => {
+
+    generateStars = setInterval(() => {
+      
       while(timeout <100) {
 
-     
         let screen = document.querySelector('.screen');
 
         star = document.createElement('i');
@@ -321,14 +303,13 @@ function stars(){
      // },14)
 }
 
-   
 
 function rocks() {
     var timeout = 0;
     var oldleft = 0;
-    var generaterocks = setInterval(() => {
+    generaterocks = setInterval(() => {
 
-       
+        
         let screen = document.querySelector('.screen');
         
         var rock = document.createElement('div');
@@ -337,26 +318,53 @@ function rocks() {
         
 
         let x = Math.floor(Math.random() * window.innerWidth);
-       
         if ((oldleft - x) > 100 || (oldleft - x) < -100) {
+          if(x > 0 && x < 1200 ) {
+
+          
 
        
-        let duration = Math.random() * 1+10;
-        let h = (Math.random()+1) * 110;
+            let duration = Math.random() * 1+5;
+            let h = (Math.random()+1) * 110;
 
-        rock.style.left = x + 'px';
-        
-        rock.style.height = h + 'px';
-        rock.style.width
+            rock.style.left = x + 'px';
             
-        rock.style.animationDuration = duration + 's';
-        screen.appendChild(rock)
-      }
+            rock.style.height = h + 'px';
+            rock.style.width
+                
+            rock.style.animationDuration = duration + 's';
+            screen.appendChild(rock)
+          }
+        }
       oldleft = x;
  
         
-    }, 500);
+    }, 600);
 }
+
+
+function runpoints() {
+   generateStars = setInterval(() => {
+    var element = document.getElementById("score");
+    element.innerHTML = score.getPoints();  
+    },14)
+}
+function checkmissedrocks() {
+  
+  let heigth = window.innerHeight;
+  getmissed = setInterval(() => {
+    var rockies = document.getElementsByClassName("rock")
+  for (var i = 0; i < rockies.length; i++) {
+    
+    var rock = rockies[i];
+    pos = rock.getBoundingClientRect();
+    if(pos.top > 800){
+      stoprunning();
+
+    }
+  }
+  },500)
+  } 
 
 var px = 50; // Position x and y
 var py = 50;
@@ -404,7 +412,6 @@ DeviceMotionEvent.requestPermission().then(response => {
     }
 });
 }
-
 
 function shoot() {
   let rocket = document.querySelector('.rocket');
@@ -461,11 +468,113 @@ function shoot() {
       shot.style.left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left")) + 22 +  "px"; //shot should always be placed at the top of my jet..!
     }
   
+ var score  = (function() {
+    var stop = 1;
+    var points = 0;
+    
+    
+    return {
+      start: function() {
+        stop = 0;
+      },
+      stop: function() {
+        stop = 1;
+      },
+      clear: function() {
+        score.stop();
+        points = 0;
+        
+      },
+      restart: function() {
+        score.clear();
+        score.start();
+      },
+      timer: function() {
+        if (stop === 0) {
+          points++;
+        }
+      },
+      getPoints: function() {
+          a = points;
+          return a;
+      },
+    }
+  })();
+  setInterval(score.timer, 10);
+   
+  
+  
+  
+  function stoprunning(){
+    score.stop();
+    console.log("Yep")
+    document.removeEventListener("mousemove", mousemove);
+    document.removeEventListener("keydown", addshot);
+    
+    clearInterval(generaterocks);
+    clearInterval(getmissed);
+    
+    //score.stop();
+    //score.restart();
+    stopp = true;
+    my_popup = document.getElementsByClassName("my_popup")[0];
+    my_popup.style.display="inline-block";
+    var element = document.getElementById("popupscore");
+    element.innerHTML = score.getPoints();  
+    console.log(stopp)
+    console.log("hathathat")
+  
+    deleterocks = setInterval(() => {
+      if (stopp == true) {
+      var rockies = document.getElementsByClassName("rock")
+      for (var i = 0; i < rockies.length; i++) {
+          
+        var rock = rockies[i];
+        var rockbound = rock.getBoundingClientRect();
+        console.log(1)
+        rock.parentElement.removeChild(rock);
+      }
+        
+      }
+      },50) 
+  }
+ 
+  function restart() {
+    
+    console.log(deleterocks);
+    clearInterval(deleterocks);
+    
+    stopp = false;
+    
 
+    console.log(deleterocks);
+    
+    moveRocket2();
+    rocks();
+    checkmissedrocks();
+    //moveRocket();
+    
+    my_popup = document.getElementsByClassName("my_popup")[0];
+    my_popup.style.display="none";
+    score.clear();
+    score.restart();
+    runpoints();
+    
+  }
 
-   stars();
+  function start() {
+  score.start();
+  stars();
    rocks();
-   moveRocket3();
+   moveRocket2();
+   checkmissedrocks();
+   runpoints();
+  }
+  start();
+   //rocks();
+   //moveRocket();
+   //moveRocket2();
+   //checkmissedrocks();
    //shoot();
    //moveRocket2();
 

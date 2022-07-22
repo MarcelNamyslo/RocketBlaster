@@ -83,8 +83,57 @@ body {
  background-repeat: no-repeat;
  
  animation-timing-function: linear;
- animation: animateRocks linear ;
+ animation: animateRocks linear  ;
 }  
+
+body     { 
+  font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+  color: white;    
+  background-color: #383838;    
+}
+.wrapper {
+  text-align: center;
+  background-color: #383838;
+  color: white;
+}
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+
+
+}
+.score {
+  position: relative;
+  display: inline-block;
+  padding:5px;
+  left: 90%;
+  width: 230px;
+  margin: 5px auto;
+  font-size: 30px;
+  
+}
+.my_popup
+{
+position: relative;
+border: 3px solid #888;
+display: inline-block;
+padding:10px;
+left: 45%;
+width: 230px;
+margin: 80px auto;
+display: none;
+
+}
+
 
 @keyframes animateRocks{
   from
