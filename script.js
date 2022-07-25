@@ -507,20 +507,13 @@ function shoot() {
   }
  
   function restart() {
-    
     console.log(deleterocks);
     clearInterval(deleterocks);
-    
     stopp = false;
-    
-
-    console.log(deleterocks);
-    
     moveRocket2();
     rocks();
     checkmissedrocks();
     //moveRocket();
-    
     my_popup = document.getElementsByClassName("my_popup")[0];
     my_popup.style.display="none";
     score.clear();
@@ -554,6 +547,7 @@ DeviceMotionEvent.requestPermission().then(response => {
             rotation_degrees = event.alpha;
             frontToBack_degrees = event.beta-20;
             leftToRight_degrees = event.gamma;
+            var rocks = document.getElementsByClassName("rock")
             
             // Update velocity according to how tilted the phone is
             // Since phones are narrower than they are long, double the increase to the x velocity
@@ -580,6 +574,50 @@ DeviceMotionEvent.requestPermission().then(response => {
             flame.setAttribute('style', "left:" + (px+3.1) + "%;" +
             "top:" + (py+7.4) + "%;");
             
+            for (var i = 0; i < rocks.length; i++) {
+              var rock = rocks[i];
+              var rockbound = rock.getBoundingClientRect();
+              
+              //Condition to check whether the rock/alien and the bullet are at the same position..!
+              //If so,then we have to destroy that roc
+              if (
+                rocketbound.left >= rockbound.left -20   &&
+                rocketbound.left <= rockbound.left +30  &&
+                rocketbound.top -70 <= rockbound.top &&
+                rocketbound.top  >= rockbound.top  ) {
+                stoprunning();
+                console.log("error 1"); 
+                }
+              if (
+                rocketbound.left >= rockbound.left -20   &&
+                rocketbound.left <= rockbound.left -20   &&
+                rocketbound.top >= rockbound.top -50  &&
+                rocketbound.top  <= rockbound.top +50  ) {
+                stoprunning();
+                console.log("error 2");
+                
+                }
+                //oben
+                if (
+                  rocketbound.left >= rockbound.left -20   &&
+                  rocketbound.left <= rockbound.left +30  &&
+                  rocketbound.top -90 <= rockbound.top   &&
+                  rocketbound.top  >= rockbound.top -80  ) {
+                  stoprunning();
+                  console.log("error 3");
+                  
+                  }
+                  //rechts
+                if (
+                  rocketbound.left >= rockbound.left   &&
+                  rocketbound.left <= rockbound.left + 50  &&
+                  rocketbound.top -90 <= rockbound.top   &&
+                  rocketbound.top  >= rockbound.top -80  ) {
+                  stoprunning();
+                  console.log("error 4");
+                  
+                  }
+              }
         });
     }
 });
