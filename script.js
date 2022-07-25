@@ -350,7 +350,7 @@ function rocks() {
             }
           } 
       } else {
-          let x = Math.floor(Math.random() * window.innerWidth)* 0.9;
+          let x = Math.floor(Math.random() * window.innerWidth)* 0.87;
          
           if(x > 0 && x < (width *0.8) ) {
 
@@ -405,7 +405,7 @@ function checkmissedrocks() {
       console.log("ssadfefW")
       if(pos.top > (heigth* 0.85)){
         stoprunning();
-        error=699;
+        error=pos.left;
     
    
   }
