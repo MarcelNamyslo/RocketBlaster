@@ -380,53 +380,6 @@ function checkmissedrocks() {
   },500)
   } 
 
-var px = 50; // Position x and y
-var py = 50;
-var vx = 0.0; // Velocity x and y
-var vy = 0.0;
-var updateRate = 1/60; // Sensor refresh rate
-
-function getAccel(){
-DeviceMotionEvent.requestPermission().then(response => {
-    if (response == 'granted') {
-   // Add a listener to get smartphone orientation 
-       // in the alpha-beta-gamma axes (units in degrees)
-        window.addEventListener('deviceorientation',(event) => {
-            // Expose each orientation angle in a more readable way
-            rotation_degrees = event.alpha;
-            frontToBack_degrees = event.beta-20;
-            leftToRight_degrees = event.gamma;
-            
-            // Update velocity according to how tilted the phone is
-            // Since phones are narrower than they are long, double the increase to the x velocity
-            vx = vx + leftToRight_degrees * updateRate*4/3; 
-            vy = vy + frontToBack_degrees * updateRate *2/3;
-            
-            // Update position and clip it to bounds
-            px = px + vx*.5;
-            if (px > 90 || px < 0){ 
-                px = Math.max(0, Math.min(90, px)) // Clip px between 0-98
-                vx = 0;
-            }
-
-            py = py + vy*.5;
-            if (py > 90 || py < 0){
-                py = Math.max(0, Math.min(90, py)) // Clip py between 0-98
-                vy = 0;
-            }
-            rocket = document.querySelector('.rocket');
-            flame = document.querySelector('.flame');
-           
-            rocket.setAttribute('style', "left:" + (px) + "%;" +
-                                          "top:" + (py) + "%;");
-            flame.setAttribute('style', "left:" + (px+3.1) + "%;" +
-            "top:" + (py+7.4) + "%;");
-            
-        });
-    }
-});
-}
-
 function shoot() {
   let rocket = document.querySelector('.rocket');
   var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
@@ -584,6 +537,53 @@ function shoot() {
    checkmissedrocks();
    runpoints();
   }
+
+  var px = 50; // Position x and y
+var py = 50;
+var vx = 0.0; // Velocity x and y
+var vy = 0.0;
+var updateRate = 1/60; // Sensor refresh rate
+
+function getAccel(){
+DeviceMotionEvent.requestPermission().then(response => {
+    if (response == 'granted') {
+   // Add a listener to get smartphone orientation 
+       // in the alpha-beta-gamma axes (units in degrees)
+        window.addEventListener('deviceorientation',(event) => {
+            // Expose each orientation angle in a more readable way
+            rotation_degrees = event.alpha;
+            frontToBack_degrees = event.beta-20;
+            leftToRight_degrees = event.gamma;
+            
+            // Update velocity according to how tilted the phone is
+            // Since phones are narrower than they are long, double the increase to the x velocity
+            vx = vx + leftToRight_degrees * updateRate; 
+            vy = vy + frontToBack_degrees * updateRate *1/2;
+            
+            // Update position and clip it to bounds
+            px = px + vx*.5;
+            if (px > 90 || px < 0){ 
+                px = Math.max(0, Math.min(90, px)) // Clip px between 0-98
+                vx = 0;
+            }
+
+            py = py + vy*.5;
+            if (py > 90 || py < 0){
+                py = Math.max(0, Math.min(90, py)) // Clip py between 0-98
+                vy = 0;
+            }
+            rocket = document.querySelector('.rocket');
+            flame = document.querySelector('.flame');
+           
+            rocket.setAttribute('style', "left:" + (px) + "%;" +
+                                          "top:" + (py) + "%;");
+            flame.setAttribute('style', "left:" + (px+3.1) + "%;" +
+            "top:" + (py+7.4) + "%;");
+            
+        });
+    }
+});
+}
   start();
    //rocks();
    //moveRocket();
