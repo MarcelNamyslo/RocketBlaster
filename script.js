@@ -4,7 +4,8 @@ var screen = document.getElementById("screen");
 var stopp = false;
 var generateStars;
 var generaterocks;
-var deleterocks
+var deleterocks;
+var hoverscreen =true;
 let rocket = document.querySelector('.rocket');
 window.addEventListener("deviceorientation", handleOrientation, true);
 
@@ -97,20 +98,28 @@ function mousemove(e){
   let heigth = window.innerHeight;
   var rocketbound = rocket.getBoundingClientRect();
   var rocks = document.getElementsByClassName("rock")
+  var screen = document.getElementById("screen");
   if (stopp == false)  {
+    if(hoverscreen){
+
     
  
- 
-  if(e.offsetX > width *0.05 && e.offsetX < width*0.8 && e.offsetY < heigth *0.8 && e.offsetY > heigth * 0.09){
-   
-    rocket.style.left= e.offsetX - 35  + 'px';
+    console.log(e.offsetX)
+  if(e.offsetX > width *0.02 && e.offsetX < width*0.8 && e.offsetY < heigth *0.8 && e.offsetY > heigth * 0.09){
+    a = width *0.15
     
+   //console.log(rocketbound.left )
+   //console.log(a)
+  if (rocketbound.left > 160) {
+  rocket.style.left= e.offsetX - 35  + 'px';
   rocket.style.top = e.offsetY -55 + 'px';
   flame.style.left= e.offsetX -20  + 'px';
   flame.style.top = e.offsetY -3 + 'px';
   up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
   var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
   }
+}
+}
   for (var i = 0; i < rocks.length; i++) {
     var rock = rocks[i];
     var rockbound = rock.getBoundingClientRect();
@@ -158,7 +167,12 @@ function mousemove(e){
 } 
 }
 
-
+function onscreen(){
+ hoverscreen =true;
+}
+function offscreen(){
+  hoverscreen =false;
+}
 function moveRocket() {
 window.addEventListener("keydown", (e) => {
     let rocket = document.querySelector('.rocket');
