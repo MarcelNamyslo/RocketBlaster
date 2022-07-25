@@ -552,6 +552,7 @@ DeviceMotionEvent.requestPermission().then(response => {
             leftToRight_degrees = event.gamma;
             var rocks = document.getElementsByClassName("rock")
             
+            if (stopp == false)  {
             // Update velocity according to how tilted the phone is
             // Since phones are narrower than they are long, double the increase to the x velocity
             vx = vx + leftToRight_degrees * updateRate; 
@@ -621,6 +622,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                   
                   }
               }
+            }
         });
     }
 });
