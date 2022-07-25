@@ -352,7 +352,7 @@ function rocks() {
             screen.appendChild(rock)
           }
         }else {
-          if(x > 0 && x < 300 ) {
+          if(x > 0 && x < 500 ) {
 
           
 

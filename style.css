@@ -235,7 +235,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     from
       {
         transform: translateY(0);
-        transform: translateX(80%);
+        transform: translateX(5%);
       }
       to
       {
