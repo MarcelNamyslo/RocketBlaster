@@ -350,7 +350,7 @@ function rocks() {
             }
           } 
       } else {
-          let x = Math.floor(Math.random() * window.innerWidth );
+          let x = Math.floor(Math.random() * window.innerWidth )-100;
          
           if(x > 0 && x < (width *0.8) ) {
 
