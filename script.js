@@ -382,7 +382,7 @@ function checkmissedrocks() {
         error=6;
     }
     else {
-      (pos.top > 50){
+      if(pos.top > 50){
         stoprunning();
         error=699;
     }
