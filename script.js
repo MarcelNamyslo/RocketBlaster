@@ -370,6 +370,8 @@ function checkmissedrocks() {
   let width = window.innerWidth;
   console.log(heigth)
   console.log("da")
+  console.log(width)
+  console.log("da")
   getmissed = setInterval(() => {
     var rockies = document.getElementsByClassName("rock")
   for (var i = 0; i < rockies.length; i++) {
@@ -381,11 +383,13 @@ function checkmissedrocks() {
         stoprunning();
         error=6;
     }
+  }
     else {
+      console.log("ssadfefW")
       if(pos.top > 50){
         stoprunning();
         error=699;
-    }
+    
    
   }
     }
