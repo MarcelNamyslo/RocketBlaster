@@ -6,6 +6,7 @@ var generateStars;
 var generaterocks;
 var deleterocks;
 var hoverscreen =true;
+var error;
 let rocket = document.querySelector('.rocket');
 window.addEventListener("deviceorientation", handleOrientation, true);
 
@@ -132,7 +133,7 @@ function mousemove(e){
       rocketbound.top -70 <= rockbound.top &&
       rocketbound.top  >= rockbound.top  ) {
       stoprunning();
-      console.log("error 1"); 
+      error=1;
       }
     if (
       rocketbound.left >= rockbound.left -20   &&
@@ -140,7 +141,7 @@ function mousemove(e){
       rocketbound.top >= rockbound.top -50  &&
       rocketbound.top  <= rockbound.top +50  ) {
       stoprunning();
-      console.log("error 2");
+      error=2;
       
       }
       //oben
@@ -150,7 +151,7 @@ function mousemove(e){
         rocketbound.top -90 <= rockbound.top   &&
         rocketbound.top  >= rockbound.top -80  ) {
         stoprunning();
-        console.log("error 3");
+        error=3;
         
         }
         //rechts
@@ -160,7 +161,7 @@ function mousemove(e){
         rocketbound.top -90 <= rockbound.top   &&
         rocketbound.top  >= rockbound.top -80  ) {
         stoprunning();
-        console.log("error 4");
+        error=4;
         
         }
     }
@@ -374,6 +375,7 @@ function checkmissedrocks() {
     pos = rock.getBoundingClientRect();
     if(pos.top > 800){
       stoprunning();
+      error=6;
 
     }
   }
@@ -487,6 +489,7 @@ function shoot() {
     my_popup = document.getElementsByClassName("my_popup")[0];
     my_popup.style.display="inline-block";
     var element = document.getElementById("popupscore");
+    element.innerHTML = error;  
     element.innerHTML = score.getPoints();  
     console.log(stopp)
     console.log("hathathat")
@@ -586,7 +589,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                 rocketbound.top -70 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
-                console.log("error 1"); 
+                error=11;
                 }
               if (
                 rocketbound.left >= rockbound.left -20   &&
@@ -594,7 +597,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                 rocketbound.top >= rockbound.top -50  &&
                 rocketbound.top  <= rockbound.top +50  ) {
                 stoprunning();
-                console.log("error 2");
+                error=12;
                 
                 }
                 //oben
@@ -604,7 +607,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                   rocketbound.top -90 <= rockbound.top   &&
                   rocketbound.top  >= rockbound.top -80  ) {
                   stoprunning();
-                  console.log("error 3");
+                  error=13;
                   
                   }
                   //rechts
@@ -614,7 +617,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                   rocketbound.top -90 <= rockbound.top   &&
                   rocketbound.top  >= rockbound.top -80  ) {
                   stoprunning();
-                  console.log("error 4");
+                  error=14;
                   
                   }
               }
