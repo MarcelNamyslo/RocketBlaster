@@ -490,7 +490,7 @@ function shoot() {
     my_popup.style.display="inline-block";
     var element = document.getElementById("popupscore");
     element.innerHTML = error;  
-    element.innerHTML = score.getPoints();  
+   // element.innerHTML = score.getPoints();  
     console.log(stopp)
     console.log("hathathat")
   
