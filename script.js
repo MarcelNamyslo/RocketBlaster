@@ -151,7 +151,7 @@ function mousemove(e){
         rocketbound.top -90 <= rockbound.top   &&
         rocketbound.top  >= rockbound.top -80  ) {
         stoprunning();
-        error=3;
+        error=33;
         
         }
         //rechts
@@ -367,16 +367,27 @@ function runpoints() {
 function checkmissedrocks() {
   
   let heigth = window.innerHeight;
+  let width = window.innerWidth;
+  console.log(heigth)
+  console.log("da")
   getmissed = setInterval(() => {
     var rockies = document.getElementsByClassName("rock")
   for (var i = 0; i < rockies.length; i++) {
     
     var rock = rockies[i];
     pos = rock.getBoundingClientRect();
-    if(pos.top > 800){
-      stoprunning();
-      error=6;
-
+    if (width > 1000){
+      if(pos.top > 800){
+        stoprunning();
+        error=6;
+    }
+    else {
+      (pos.top > 50){
+        stoprunning();
+        error=699;
+    }
+   
+  }
     }
   }
   },500)
