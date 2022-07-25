@@ -353,11 +353,8 @@ function rocks() {
             screen.appendChild(rock)
           }
         }else {
-          if(x > 0 && x < 500 ) {
+          if(x > 0 && x < 400 ) {
 
-          
-
-       
             let duration = Math.random() * 1+5;
             let h = (Math.random()+1) * 110;
 
