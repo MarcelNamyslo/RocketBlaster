@@ -221,9 +221,10 @@ and (-webkit-device-pixel-ratio: 3)  {
   .flame {
    bottom: 8.5%;
       left: 53%;
-      
-     
-     
+    }
+    .rock{
+     width: 10%;
+     height: 10%;
     }
 }
 
