@@ -351,8 +351,8 @@ function rocks() {
           } 
       } else {
           let x = Math.floor(Math.random() * (window.innerWidth * 0,8));
-          if ((oldleft - x) > 100 || (oldleft - x) < -100) {
-          if(x > 0 && x < (width *0.7) ) {
+         
+          if(x > 0 && x < (width *0.8) ) {
 
             let duration = Math.random() * 1+5;
             let h = (Math.random()+1) * 110;
@@ -366,7 +366,7 @@ function rocks() {
             screen.appendChild(rock)
           }
           
-          }
+          
       }
       oldleft = x;
  
