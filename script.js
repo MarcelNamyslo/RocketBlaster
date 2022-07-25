@@ -403,7 +403,7 @@ function checkmissedrocks() {
   }
     else {
       console.log("ssadfefW")
-      if(pos.top > (heigth* 0.7)){
+      if(pos.top > (heigth* 0.85)){
         stoprunning();
         error=699;
     
