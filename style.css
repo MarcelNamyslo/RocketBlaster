@@ -239,7 +239,7 @@ and (-webkit-device-pixel-ratio: 3)  {
       }
       to
       {
-        transform: translateY(50vh);
+        transform: translateY(80vh);
       }
   }
 }
