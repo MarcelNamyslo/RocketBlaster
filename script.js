@@ -576,10 +576,12 @@ var updateRate = 1/60; // Sensor refresh rate
 
 function getAccel(){
 DeviceMotionEvent.requestPermission().then(response => {
+    
     if (response == 'granted') {
    // Add a listener to get smartphone orientation 
        // in the alpha-beta-gamma axes (units in degrees)
        moverocketonmobile = window.addEventListener('deviceorientation',(event) => {
+        checkmissedrocks();
             // Expose each orientation angle in a more readable way
             rotation_degrees = event.alpha;
             frontToBack_degrees = event.beta-20;
