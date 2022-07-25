@@ -322,6 +322,7 @@ function stars(){
 function rocks() {
     var timeout = 0;
     var oldleft = 0;
+    let width = window.innerWidth;
     generaterocks = setInterval(() => {
 
         
