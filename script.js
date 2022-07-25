@@ -405,7 +405,7 @@ function checkmissedrocks() {
       console.log("ssadfefW")
       if(pos.top > (heigth* 0.85)){
         stoprunning();
-        error=pos.left;
+        error=String(pos.left) + " " + String("pos.top") ;
     
    
   }
