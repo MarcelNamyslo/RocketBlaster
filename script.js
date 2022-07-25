@@ -353,7 +353,7 @@ function rocks() {
             screen.appendChild(rock)
           }
         }else {
-          if(x > 0 && x < 400 ) {
+          if(x > 0 && x < (width *0.7) ) {
 
             let duration = Math.random() * 1+5;
             let h = (Math.random()+1) * 110;
@@ -403,7 +403,7 @@ function checkmissedrocks() {
   }
     else {
       console.log("ssadfefW")
-      if(pos.top > 500){
+      if(pos.top > (heigth* 0.7)){
         stoprunning();
         error=699;
     
