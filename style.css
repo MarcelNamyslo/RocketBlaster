@@ -220,6 +220,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     }
   .my_popup{
     text-align: center;
+    left: 20%;
 }
   .flame {
    bottom: 8.5%;

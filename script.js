@@ -482,7 +482,6 @@ function shoot() {
     
     clearInterval(generaterocks);
     clearInterval(getmissed);
-    
     //score.stop();
     //score.restart();
     stopp = true;
@@ -545,7 +544,7 @@ DeviceMotionEvent.requestPermission().then(response => {
     if (response == 'granted') {
    // Add a listener to get smartphone orientation 
        // in the alpha-beta-gamma axes (units in degrees)
-        window.addEventListener('deviceorientation',(event) => {
+       moverocketonmobile = window.addEventListener('deviceorientation',(event) => {
             // Expose each orientation angle in a more readable way
             rotation_degrees = event.alpha;
             frontToBack_degrees = event.beta-20;
