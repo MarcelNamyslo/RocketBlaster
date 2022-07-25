@@ -332,27 +332,26 @@ function rocks() {
         rock.classList.add('rock');
         
         
-
-        let x = Math.floor(Math.random() * window.innerWidth);
-        if ((oldleft - x) > 100 || (oldleft - x) < -100) {
-          if (width > 1000){
-          if(x > 0 && x < 1200 ) {
-
+        if (width > 1000){
+          let x = Math.floor(Math.random() * window.innerWidth);
+          if ((oldleft - x) > 100 || (oldleft - x) < -100) {
           
+            if(x > 0 && x < 1200 ) {
+              let duration = Math.random() * 1+5;
+              let h = (Math.random()+1) * 110;
 
-       
-            let duration = Math.random() * 1+5;
-            let h = (Math.random()+1) * 110;
-
-            rock.style.left = x + 'px';
+              rock.style.left = x + 'px';
             
-            rock.style.height = h + 'px';
-            rock.style.width
+              rock.style.height = h + 'px';
+              rock.style.width
                 
-            rock.style.animationDuration = duration + 's';
-            screen.appendChild(rock)
-          }
-        }else {
+              rock.style.animationDuration = duration + 's';
+              screen.appendChild(rock)
+            }
+          } 
+      } else {
+          let x = Math.floor(Math.random() * (window.innerWidth * 0,8));
+          if ((oldleft - x) > 100 || (oldleft - x) < -100) {
           if(x > 0 && x < (width *0.7) ) {
 
             let duration = Math.random() * 1+5;
@@ -366,7 +365,8 @@ function rocks() {
             rock.style.animationDuration = duration + 's';
             screen.appendChild(rock)
           }
-        }
+          
+          }
       }
       oldleft = x;
  
