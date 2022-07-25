@@ -226,6 +226,18 @@ and (-webkit-device-pixel-ratio: 3)  {
      width: 10%;
      height: 10%;
     }
+
+  @keyframes animateRocks{
+    from
+      {
+        transform: translateY(0);
+        transform: translateX(5%);
+      }
+      to
+      {
+        transform: translateY(50vh);
+      }
+  }
 }
 
 
