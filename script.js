@@ -334,6 +334,7 @@ function rocks() {
 
         let x = Math.floor(Math.random() * window.innerWidth);
         if ((oldleft - x) > 100 || (oldleft - x) < -100) {
+          if (width > 1000){
           if(x > 0 && x < 1200 ) {
 
           
@@ -350,7 +351,25 @@ function rocks() {
             rock.style.animationDuration = duration + 's';
             screen.appendChild(rock)
           }
+        }else {
+          if(x > 0 && x < 300 ) {
+
+          
+
+       
+            let duration = Math.random() * 1+5;
+            let h = (Math.random()+1) * 110;
+
+            rock.style.left = x + 'px';
+            
+            rock.style.height = h + 'px';
+            rock.style.width
+                
+            rock.style.animationDuration = duration + 's';
+            screen.appendChild(rock)
+          }
         }
+      }
       oldleft = x;
  
         
