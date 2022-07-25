@@ -386,7 +386,7 @@ function checkmissedrocks() {
   }
     else {
       console.log("ssadfefW")
-      if(pos.top > 50){
+      if(pos.top > 500){
         stoprunning();
         error=699;
     
