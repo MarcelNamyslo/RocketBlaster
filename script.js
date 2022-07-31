@@ -591,8 +591,14 @@ DeviceMotionEvent.requestPermission().then(response => {
        runpoints();
    // Add a listener to get smartphone orientation 
        // in the alpha-beta-gamma axes (units in degrees)
-       moverocketonmobile = window.addEventListener('deviceorientation',(event) => {
-        checkmissedrocks();
+       moverocketonmobile = window.addEventListener('deviceorientation',moveonmobile);
+    }
+  }
+});
+}
+
+function moveonmobile(event) {
+          checkmissedrocks();
             // Expose each orientation angle in a more readable way
             rotation_degrees = event.alpha;
             frontToBack_degrees = event.beta-20;
@@ -671,10 +677,6 @@ DeviceMotionEvent.requestPermission().then(response => {
                   }
               }
             }
-        });
-    }
-  }
-});
 }
 
    //rocks();
