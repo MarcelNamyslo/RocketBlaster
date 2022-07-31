@@ -520,11 +520,9 @@ function shoot() {
     stop_popup = document.getElementsByClassName("restart_popup")[0];
     stop_popup.style.display="inline-block";
 
-    var element = document.getElementById("Lost");
+    var element = document.getElementById("pointscore");
     element.innerHTML = error; 
 
-    var element = document.getElementById("Lost1");
-    element.innerHTML = "sbfsdbdsfb"; 
   
     console.log(stopp)
     console.log("hathathat")
@@ -636,7 +634,7 @@ DeviceMotionEvent.requestPermission().then(response => {
               if (
                 rocketbound.left >= rockbound.left -20   &&
                 rocketbound.left <= rockbound.left +30  &&
-                rocketbound.top -90 <= rockbound.top &&
+                rocketbound.top -110 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
                 error=11;
