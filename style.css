@@ -211,8 +211,6 @@ and (-webkit-device-pixel-ratio: 3)  {
     width: 15%;
     left: 40%;
     touch-action: manipulation;
-   
-    
     font-size: 10px;
     top: 100%;
     height: 7.5%;
@@ -245,6 +243,10 @@ and (-webkit-device-pixel-ratio: 3)  {
     .rock{
      width: 10%;
      height: 10%;
+    }
+
+    .score{
+      left: 85%;
     }
 
   @keyframes animateRocks{
