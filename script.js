@@ -466,13 +466,14 @@ var updateRate = 1/60; // Sensor refresh rate
 
 var pressed = false
 function getAccel(){
+  score.start();
+      setInterval(score.timer, 10);
 DeviceMotionEvent.requestPermission().then(response => {
     if(pressed == false) {
       pressed = true;
     if (response == 'granted') {
         
-      score.start();
-      setInterval(score.timer, 10);
+      
        rocks();
        moveRocket2();
        checkmissedrocks();
@@ -529,7 +530,7 @@ function moveonmobile(event) {
               if (
                 rocketbound.left >= rockbound.left -20   &&
                 rocketbound.left <= rockbound.left +30  &&
-                rocketbound.top -10 <= rockbound.top &&
+                rocketbound.top +20 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
                 error=11;
