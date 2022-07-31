@@ -502,7 +502,7 @@ function shoot() {
       },
     }
   })();
-  setInterval(score.timer, 10);
+  //setInterval(score.timer, 10);
    
   
   
@@ -634,7 +634,7 @@ DeviceMotionEvent.requestPermission().then(response => {
               if (
                 rocketbound.left >= rockbound.left -20   &&
                 rocketbound.left <= rockbound.left +30  &&
-                rocketbound.top -110 <= rockbound.top &&
+                rocketbound.top -140 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
                 error=11;
