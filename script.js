@@ -517,8 +517,8 @@ function shoot() {
     //score.stop();
     //score.restart();
     stopp = true;
-    my_popup = document.getElementsByClassName("my_popup")[0];
-    my_popup.style.display="inline-block";
+    stop_popup = document.getElementsByClassName("restart_popup")[0];
+    stop_popup.style.display="inline-block";
     var element = document.getElementById("popupscore");
     element.innerHTML = error;  
    // element.innerHTML = score.getPoints();  
@@ -548,7 +548,7 @@ function shoot() {
     rocks();
     checkmissedrocks();
     //moveRocket();
-    my_popup = document.getElementsByClassName("my_popup")[0];
+    my_popup = document.getElementsByClassName("restart_popup")[0];
     my_popup.style.display="none";
     score.clear();
     score.restart();
@@ -563,6 +563,8 @@ function shoot() {
    moveRocket2();
    checkmissedrocks();
    runpoints();
+   my_popup = document.getElementsByClassName("start_popup")[0];
+  my_popup.style.display="none";
   }
 
   var px = 50; // Position x and y
@@ -575,6 +577,12 @@ function getAccel(){
 DeviceMotionEvent.requestPermission().then(response => {
     
     if (response == 'granted') {
+      score.start();
+      stars();
+       rocks();
+       moveRocket2();
+       checkmissedrocks();
+       runpoints();
    // Add a listener to get smartphone orientation 
        // in the alpha-beta-gamma axes (units in degrees)
        moverocketonmobile = window.addEventListener('deviceorientation',(event) => {
@@ -660,12 +668,12 @@ DeviceMotionEvent.requestPermission().then(response => {
     }
 });
 }
-  start();
+
    //rocks();
    //moveRocket();
    //moveRocket2();
    //checkmissedrocks();
    //shoot();
    //moveRocket2();
-
+   stars();
   

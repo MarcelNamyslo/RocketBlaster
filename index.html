@@ -10,6 +10,16 @@
     <button class="accelPermsButton" onclick="getAccel()">Start</button>
     
     <div class ="screen" onmouseover="onscreen()" onmouseout="offscreen()">
+      
+      <div class = "start_popup"  style="text-align: center;" id="restart_popup">
+        <p  style="text-align: center;">This is RocketBlaster</p>
+        <p style="text-align: center;">Press</p>
+          <p id="popupscore" style="text-align: center;"></p>
+            <button  class="button"  id="clickButton" onclick="start()">Start</button>
+          </p>
+          </div>
+
+
       <div class="score" id="score">
         <p ></p>
       </div>
@@ -17,11 +27,11 @@
     <div class ="flame"></div>
     <div class ="rock"></div>
     <div class="indicatorDot" style="left:30%; top:30%;"></div>
-    <div class = "my_popup" id="my_popup">
+    <div class = "restart_popup"  style="text-align: center;"  id="restart_popup">
         <p  style="text-align: center;">You lost</p>
         <p style="text-align: center;">Your score is:</p>
           <p id="popupscore" style="text-align: center;"></p>
-            <button class="button"  id="clickButton" name= "no" onclick="restart()">You want to restart?</button>
+            <button class="button"  id="clickButton" onclick="restart()">You want to restart?</button>
           </p>
           </div>
     </div>
