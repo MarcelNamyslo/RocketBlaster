@@ -174,116 +174,6 @@ function onscreen(){
 function offscreen(){
   hoverscreen =false;
 }
-function moveRocket() {
-window.addEventListener("keydown", (e) => {
-    let rocket = document.querySelector('.rocket');
-    let flame = document.querySelector('.flame');
-    let ss = parseInt(window.getComputedStyle(document.querySelector('.screen')).getPropertyValue("width"));
-    var left = parseInt(window.getComputedStyle(rocket).getPropertyValue("left"));
-    var right = parseInt(window.getComputedStyle(rocket).getPropertyValue("right"));
-    var leftFlame = parseInt(window.getComputedStyle(flame).getPropertyValue("left"));
-     
-    var up = parseInt(window.getComputedStyle(rocket).getPropertyValue("top"));
-    var bottom = parseInt(window.getComputedStyle(rocket).getPropertyValue("bottom"));
-    var upFlame = parseInt(window.getComputedStyle(flame).getPropertyValue("top"));
-    //var screenlength = parseInt(window.getComputedStyle(screen).getPropertyValue("top"));
-
-window.onkeydown = function(e) {
-var kc = e.keyCode;
-e.preventDefault();
-
-if      (kc === 65) Keys.left = true;  // only one key per event
-else if (kc === 87) Keys.up = true;    // so check exclusively
-else if (kc === 68) Keys.right = true;
-else if (kc === 83) Keys.down = true;
-}
-
-
-window.onkeyup = function(e) {
-var kc = e.keyCode;
-e.preventDefault();
-
-if      (kc === 65) Keys.left = false;
-else if (kc === 87) Keys.up = false;
-else if (kc === 68) Keys.right = false;
-else if (kc === 83) Keys.down = false;
-};
-
-if (Keys.up &&  up > 0) {
-  
-   rocket.style.top = up - 30 + "px";
-    flame.style.top = upFlame - 30 + "px";
-    
-   
-}
-else if (Keys.down && up < 650) {  
-    rocket.style.top = up + 30 + "px";
-    flame.style.top = upFlame + 30 + "px";
-}
-
-if (Keys.left &&  left > 0) {
-   
-    rocket.style.left = left - 30 + "px";
-    flame.style.left = leftFlame - 30 + "px";
-    
-}
-else if (Keys.right && left < ss * 0.93) {
-    rocket.style.left = left + 30 + "px";
-    flame.style.left = leftFlame + 30 + "px";
-}
-
-
-if (e.key == "ArrowUp" || e.keyCode == 32 ) {
-    let screen = document.querySelector('.screen');
-    //32 is for space key
-    //flame.style.left = left;
-    //flame.style.up = up;
-    var shot = document.createElement("div");
-    
-    shot.classList.add("shot");
-    screen.appendChild(shot);
-    
-    var bottom = window.innerHeight - up- 230 ;
-    shot.style.bottom = bottom +  "px";
-
-    var moveshot= setInterval(() => {
-        var rocks = document.getElementsByClassName("rock");
-        for (var i = 0; i < rocks.length; i++) {
-            var rock = rocks[i];
-            if (rock != undefined) {
-                var rockbound = rock.getBoundingClientRect();
-                var blastbound = shot.getBoundingClientRect();
-    
-              //Condition to check whether the rock/alien and the bullet are at the same position..!
-              //If so,then we have to destroy that roc
-              if (
-                blastbound.left >= rockbound.left -20 &&
-                blastbound.right <= rockbound.right +60  &&
-                
-                blastbound.bottom <= rockbound.bottom -100
-              ) {
-                rock.parentElement.removeChild(rock); 
-                shot.parentElement.removeChild(shot);
-                
-              }
-            }
-          }
-      var shotbottom = parseInt(window.getComputedStyle(shot).getPropertyValue("bottom"));
-     
-      //Stops the shot from moving outside the gamebox
-      if (shotbottom >= 1000) {
-        clearInterval(moveshot);
-      }
-
-      shot.style.left = left + 22 +  "px"; //shot should always be placed at the top of my jet..!
-     
-      shot.style.bottom = shotbottom + 7 + "px";
-    });
-  }
-
-});
-}
-
 
 function stars(){
     let star
@@ -509,13 +399,11 @@ function shoot() {
   
   function stoprunning(){
     score.stop();
-    console.log("Yep")
     document.removeEventListener("mousemove", mousemove);
     document.removeEventListener("keydown", addshot);
     
     clearInterval(generaterocks);
     clearInterval(getmissed);
-  
     stopp = true;
     stop_popup = document.getElementsByClassName("restart_popup")[0];
     stop_popup.style.display="inline-block";
@@ -641,7 +529,7 @@ function moveonmobile(event) {
               if (
                 rocketbound.left >= rockbound.left -20   &&
                 rocketbound.left <= rockbound.left +30  &&
-                rocketbound.top -140 <= rockbound.top &&
+                rocketbound.top -10 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
                 error=11;
