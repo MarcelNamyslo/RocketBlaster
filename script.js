@@ -580,7 +580,7 @@ DeviceMotionEvent.requestPermission().then(response => {
       pressed = true;
     if (response == 'granted') {
       score.start();
-      stars();
+    
        rocks();
        moveRocket2();
        checkmissedrocks();
