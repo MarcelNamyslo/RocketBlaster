@@ -405,7 +405,7 @@ function checkmissedrocks() {
       console.log("ssadfefW")
       if(pos.top > (heigth* 0.85)){
         stoprunning();
-        error=String(pos.left) + " " + String(pos.top) + " " + String(heigth) ;
+        error=String(pos.left) + " " + String(pos.top) ;
     
    
   }
@@ -548,8 +548,8 @@ function shoot() {
     rocks();
     checkmissedrocks();
     //moveRocket();
-    my_popup = document.getElementsByClassName("restart_popup")[0];
-    my_popup.style.display="none";
+    stop_popup = document.getElementsByClassName("restart_popup")[0];
+    stop_popup.style.display="none";
     score.clear();
     score.restart();
     runpoints();
@@ -563,8 +563,8 @@ function shoot() {
    moveRocket2();
    checkmissedrocks();
    runpoints();
-   my_popup = document.getElementsByClassName("start_popup")[0];
-  my_popup.style.display="none";
+   start_popup = document.getElementsByClassName("start_popup")[0];
+   start_popup.style.display="none";
   }
 
   var px = 50; // Position x and y
