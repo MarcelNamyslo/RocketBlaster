@@ -520,7 +520,11 @@ function shoot() {
     stopp = true;
     stop_popup = document.getElementsByClassName("restart_popup")[0];
     stop_popup.style.display="inline-block";
+
     var element = document.getElementById("popupscore");
+    element.innerHTML = "sbfsdbdsfb"; 
+
+    var element = document.getElementById("Lost");
     element.innerHTML = "sbfsdbdsfb"; 
    // element.innerHTML = score.getPoints();  
     console.log(stopp)
