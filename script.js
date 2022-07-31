@@ -573,9 +573,11 @@ var vx = 0.0; // Velocity x and y
 var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
+var pressed = false
 function getAccel(){
 DeviceMotionEvent.requestPermission().then(response => {
-    
+    if(pressed == false) {
+      presed = true;
     if (response == 'granted') {
       score.start();
       stars();
@@ -612,6 +614,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                 vy = 0;
             }
             rocket = document.querySelector('.rocket');
+            var rocketbound = rocket.getBoundingClientRect();
             flame = document.querySelector('.flame');
            
             rocket.setAttribute('style', "left:" + (px) + "%;" +
@@ -666,6 +669,7 @@ DeviceMotionEvent.requestPermission().then(response => {
             }
         });
     }
+  }
 });
 }
 
