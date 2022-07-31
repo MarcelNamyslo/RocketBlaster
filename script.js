@@ -577,7 +577,7 @@ var pressed = false
 function getAccel(){
 DeviceMotionEvent.requestPermission().then(response => {
     if(pressed == false) {
-      presed = true;
+      pressed = true;
     if (response == 'granted') {
       score.start();
       stars();
