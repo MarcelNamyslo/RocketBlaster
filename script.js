@@ -520,7 +520,7 @@ function shoot() {
     stop_popup = document.getElementsByClassName("restart_popup")[0];
     stop_popup.style.display="inline-block";
     var element = document.getElementById("popupscore");
-    element.innerHTML = score.getPoints();  
+    element.innerHTML = error; 
    // element.innerHTML = score.getPoints();  
     console.log(stopp)
     console.log("hathathat")
