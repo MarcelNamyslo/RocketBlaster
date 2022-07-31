@@ -548,8 +548,8 @@ function shoot() {
     rocks();
     checkmissedrocks();
     //moveRocket();
-    stop_popup = document.getElementsByClassName("restart_popup")[0];
-    stop_popup.style.display="none";
+    my_popup = document.getElementsByClassName("restart_popup")[0];
+    my_popup.style.display="none";
     score.clear();
     score.restart();
     runpoints();
@@ -579,7 +579,7 @@ DeviceMotionEvent.requestPermission().then(response => {
     if(pressed == false) {
       pressed = true;
     if (response == 'granted') {
-      score.start();
+        score.start();
     
        rocks();
        moveRocket2();
@@ -613,7 +613,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                 py = Math.max(0, Math.min(90, py)) // Clip py between 0-98
                 vy = 0;
             }
-            rocket = document.querySelector('.rocket');
+            //rocket = document.querySelector('.rocket');
             var rocketbound = rocket.getBoundingClientRect();
             flame = document.querySelector('.flame');
            
