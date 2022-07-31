@@ -502,7 +502,7 @@ function shoot() {
       },
     }
   })();
-  //setInterval(score.timer, 10);
+
    
   
   
@@ -560,6 +560,7 @@ function shoot() {
 
   function start() {
   score.start();
+  setInterval(score.timer, 10);
   stars();
    rocks();
    moveRocket2();
@@ -583,7 +584,7 @@ DeviceMotionEvent.requestPermission().then(response => {
     if (response == 'granted') {
         
       score.start();
-    
+      setInterval(score.timer, 10);
        rocks();
        moveRocket2();
        checkmissedrocks();
