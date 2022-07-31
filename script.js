@@ -517,10 +517,10 @@ function shoot() {
     //score.stop();
     //score.restart();
     stopp = true;
-    stop_popup = document.getElementsByClassName("restart_popup")[0];
-    stop_popup.style.display="inline-block";
+    my_popup = document.getElementsByClassName("my_popup")[0];
+    my_popup.style.display="inline-block";
     var element = document.getElementById("popupscore");
-    element.innerHTML = "sbfsdbdsfb"; 
+    element.innerHTML = error;  
    // element.innerHTML = score.getPoints();  
     console.log(stopp)
     console.log("hathathat")
@@ -548,7 +548,7 @@ function shoot() {
     rocks();
     checkmissedrocks();
     //moveRocket();
-    my_popup = document.getElementsByClassName("restart_popup")[0];
+    my_popup = document.getElementsByClassName("my_popup")[0];
     my_popup.style.display="none";
     score.clear();
     score.restart();
@@ -563,8 +563,6 @@ function shoot() {
    moveRocket2();
    checkmissedrocks();
    runpoints();
-   start_popup = document.getElementsByClassName("start_popup")[0];
-   start_popup.style.display="none";
   }
 
   var px = 50; // Position x and y
@@ -573,18 +571,10 @@ var vx = 0.0; // Velocity x and y
 var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
-var pressed = false
 function getAccel(){
 DeviceMotionEvent.requestPermission().then(response => {
-    if(pressed == false) {
-      pressed = true;
-    if (response == 'granted') {
-        score.start();
     
-       rocks();
-       moveRocket2();
-       checkmissedrocks();
-       runpoints();
+    if (response == 'granted') {
    // Add a listener to get smartphone orientation 
        // in the alpha-beta-gamma axes (units in degrees)
        moverocketonmobile = window.addEventListener('deviceorientation',(event) => {
@@ -613,8 +603,7 @@ DeviceMotionEvent.requestPermission().then(response => {
                 py = Math.max(0, Math.min(90, py)) // Clip py between 0-98
                 vy = 0;
             }
-            //rocket = document.querySelector('.rocket');
-            var rocketbound = rocket.getBoundingClientRect();
+            rocket = document.querySelector('.rocket');
             flame = document.querySelector('.flame');
            
             rocket.setAttribute('style', "left:" + (px) + "%;" +
@@ -631,7 +620,7 @@ DeviceMotionEvent.requestPermission().then(response => {
               if (
                 rocketbound.left >= rockbound.left -20   &&
                 rocketbound.left <= rockbound.left +30  &&
-                rocketbound.top -90 <= rockbound.top &&
+                rocketbound.top -70 <= rockbound.top &&
                 rocketbound.top  >= rockbound.top  ) {
                 stoprunning();
                 error=11;
@@ -669,15 +658,14 @@ DeviceMotionEvent.requestPermission().then(response => {
             }
         });
     }
-  }
 });
 }
-
+  start();
    //rocks();
    //moveRocket();
    //moveRocket2();
    //checkmissedrocks();
    //shoot();
    //moveRocket2();
-   stars();
+
   
