@@ -515,18 +515,17 @@ function shoot() {
     
     clearInterval(generaterocks);
     clearInterval(getmissed);
-    //score.stop();
-    //score.restart();
+  
     stopp = true;
     stop_popup = document.getElementsByClassName("restart_popup")[0];
     stop_popup.style.display="inline-block";
 
-    var element = document.getElementById("popupscore");
-    element.innerHTML = "sbfsdbdsfb"; 
-
     var element = document.getElementById("Lost");
+    element.innerHTML = error; 
+
+    var element = document.getElementById("Lost1");
     element.innerHTML = "sbfsdbdsfb"; 
-   // element.innerHTML = score.getPoints();  
+  
     console.log(stopp)
     console.log("hathathat")
   
@@ -584,7 +583,8 @@ DeviceMotionEvent.requestPermission().then(response => {
     if(pressed == false) {
       pressed = true;
     if (response == 'granted') {
-        score.start();
+        
+      score.start();
     
        rocks();
        moveRocket2();
