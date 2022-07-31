@@ -181,7 +181,7 @@ function stars(){
 
     generateStars = setInterval(() => {
       
-      while(timeout <100) {
+      while(timeout <120) {
 
         let screen = document.querySelector('.screen');
 
