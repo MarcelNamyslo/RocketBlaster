@@ -409,7 +409,8 @@ function shoot() {
     stop_popup.style.display="inline-block";
 
     var element = document.getElementById("pointscore");
-    element.innerHTML = error; 
+    // element.innerHTML = error; 
+    element.innerHTML = score.getPoints();  
 
   
     console.log(stopp)
