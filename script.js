@@ -558,7 +558,7 @@ function moveonmobile(event) {
                 if (
                   rocketbound.left >= rockbound.left   &&
                   rocketbound.left <= rockbound.left + 50  &&
-                  rocketbound.top -90 <= rockbound.top   &&
+                  rocketbound.top -120 <= rockbound.top   &&
                   rocketbound.top  >= rockbound.top -80  ) {
                   stoprunning();
                   error=14;
