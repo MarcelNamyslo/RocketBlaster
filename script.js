@@ -545,15 +545,15 @@ function moveonmobile(event) {
                 
                 }
                 //oben
-                if (
-                  rocketbound.left >= rockbound.left -20   &&
-                  rocketbound.left <= rockbound.left +30  &&
-                  rocketbound.top -90 <= rockbound.top   &&
-                  rocketbound.top  >= rockbound.top -80  ) {
-                  stoprunning();
-                  error=13;
+                //if (
+                  //rocketbound.left >= rockbound.left -20   &&
+                  //rocketbound.left <= rockbound.left +30  &&
+                  //rocketbound.top -90 <= rockbound.top   &&
+                  //rocketbound.top  >= rockbound.top -80  ) {
+                  //stoprunning();
+                  //error=13;
                   
-                  }
+                  //}
                   //rechts
                 if (
                   rocketbound.left >= rockbound.left   &&
