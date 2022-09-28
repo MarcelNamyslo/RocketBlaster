@@ -449,7 +449,7 @@ function shoot() {
 
   function start() {
   score.start();
-  setInterval(score.timer, 10);
+  setInterval(score.timer, 100);
   stars();
    rocks();
    moveRocket2();
@@ -468,7 +468,7 @@ var updateRate = 1/60; // Sensor refresh rate
 var pressed = false
 function getAccel(){
   score.start();
-      setInterval(score.timer, 10);
+      setInterval(score.timer, 100);
 DeviceMotionEvent.requestPermission().then(response => {
     if(pressed == false) {
       pressed = true;
