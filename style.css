@@ -246,7 +246,7 @@ and (-webkit-device-pixel-ratio: 3)  {
     }
 
     .score{
-      right: 40%;
+      left: 50%;
     }
 
   @keyframes animateRocks{
